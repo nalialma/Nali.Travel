@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nali - Uriel Travel</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js " crossorigin="anonymous"></script>
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet @1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHg3ltDpCf6iu5UA2k/wmOqknMpk0="
+    crossorigin="" />
+  <!-- Scripts -->
+
+</head>
+<body>  <!-- Banner principal -->
+
+    <!-- Carrusel de fondo -->
+  <main class="slider2">
+       
+          <div class="vendedora-info">
+      <img src="images/nali.jpeg" alt="Nali - Vendedora de confianza" class="foto-vendedora">
+      <div class="info-vendedora">
+        <h1 data-lang="vendedora.nombre">Nali</h1>
+        <span data-lang="vendedora.descripcion">Tu vendedora de confianza</span>
+      </div>
+        <!-- Mensaje publicitario -->
+    <div class="mensaje-lado">
+      <p data-lang="mensaje.aventura">¿Listo para tu próxima aventura?</p>
+      <p data-lang="mensaje.reserva">Habla con Nali y reserva hoy</p>
+    </div>
+
+    </div>
+    <div class="logo-agencia-container">
+      <div class="logo-agencia">
+        <img src="images/uriel.logo.gif" alt="Logo Uriel Travel" class="logo-img">
+        <h2 data-lang="empresa.nombre">URIEL TRAVEL</h2>
+        <p data-lang="empresa.leg">LEG 19566</p>
+      </div>
+    </div>
+</main>
+  
+  <nav class="banner">
+   <!--menu hamburguesa-->
+<div class="menu-hamburguesa-container">
+  <button id="menu-toggle" class="menu-toggle-btn">☰</button>
+
+  <!-- Llama SVG -->
+  <svg class="llama-icon" viewBox="0 0 200 200" width="30" height="30">        <path d="M100,10 C140,10 160,50 160,90 C160,140 130,190 100,190 C70,190 40,140 40,90 C40,50 60,10 100,10 Z" fill="#fff" stroke="#000" stroke-width="2"/>
+          <circle cx="65" cy="45" r="5" fill="#000"/>
+          <circle cx="135" cy="45" r="5" fill="#000"/>
+          <path d="M65,45 Q75,35 85,45" stroke="#000" stroke-width="2" fill="none"/>
+          <path d="M115,45 Q125,35 135,45" stroke="#000" stroke-width="2" fill="none"/>
+          <path d="M60,100 L50,130 L60,150 L80,155 L90,130 L80,100 Z" fill="#ccc"/>
+          <path d="M140,100 L150,130 L140,150 L120,155 L110,130 L120,100 Z" fill="#ccc"/>
+          <path d="M70,160 Q90,180 110,160" fill="#fff" stroke="#000" stroke-width="2"/>
+        </svg>
+
+
+  <nav id="menu-hamburguesa" class="menu-hamburguesa">
+    <ul>
+      <li class="dropdown">
+        <a href="#home" data-preview="images/uriel-logo.jpg" data-scroll="home">
+          <img src="images/uriel-logo.jpg" alt="home"> Home
+        </a>
+      </li>
+
+      <li class="dropdown"> <!-- Dropdown Destinos -->
+        <a href="#Destinos">Exursiones Diarias</a>
+        <ul class="submenu">
+          <li>
+            <a href="#city-tour-salta" data-preview="images/salta-menu.jpg" data-scroll="city-tour-salta">
+              <img src="images/salta-menu.jpg" alt="City-Tour-salta"> City Tour Salta
+            </a>
+          </li>
+          <li>
+            <a href="#Salinas" data-preview="images/Salinas Grandes, Jujuy.jpg" data-scroll="Salinas">
+              <img src="images/Salinas Grandes, Jujuy.jpg" alt="Salinas"> Salinas Grandes
+            </a>
+          </li>
+          <li>
+            <a href="#cachi" data-preview="images/cachi.menu.jpg" data-scroll="cachi">
+              <img src="images/cachi.menu.jpg" alt="Cachi"> Cachi
+            </a>
+          </li>
+          <li>
+            <a href="#Cafayate" data-preview="images/cafayate-menu.jpg" data-scroll="Cafayate">
+              <img src="images/cafayate-menu.jpg" alt="Cafayate"> Cafayate
+            </a>
+          </li>
+        
+       
+          <li>
+            <a href="#Humahuaca" data-preview="images/humahuaca-menu.jpg" data-scroll="Humahuaca">
+              <img src="images/humahuaca-menu.jpg" alt="Humahuaca"> Humahuaca
+            </a>
+          </li>
+          <li>
+            <a href="#Humahuaca-mas-Hornocal" data-preview="images/hornocal-menu.jpg" data-scroll="Humahuaca-mas-Hornocal">
+              <img src="images/hornocal-menu.jpg" alt="Humahuaca-mas-Hornocal"> Humahuaca + Hornocal
+            </a>
+          </li>
+          <li>
+            <a href="#termas-rio-jordan" data-preview="images/termas-menu.jpg" data-scroll="termas-rio-jordan"><img src="images/fondo3.jpg">Termas del Río Jordan</a>
+         
+          </li>
+        </ul>
+      </li> <!-- Fin Dropdown Destinos -->
+
+      <li class="dropdown"> <!-- Dropdown Otras Actividades -->
+        <a href="#Otras-Actividades">Mas Exursiones▾</a>
+        <ul class="submenu">
+              <li>
+                  <a href="#Iruya" data-preview="images/iruya-menu.jpg" data-scroll="Iruya">
+              <img src="images/iruya-menu.jpg" alt="Iruya"> Iruya
+            </a>
+                   <a href="#Termas-del-Rio-Hondo" data-preview="images/termas-menu.jpg" data-scroll="Termas-del-Rio-Hondo">
+              <img src="images/termas.delriohondo.jpg" alt="Termas del Rio Hondo"> Termas del Rio Hondo
+            </a>
+            <a href="tren-solar" data-preview="images/iruya-menu.jpg" data-scroll="tren-solar">
+              <img src="images/tren solar.jpg" alt="tren-solar"> Tren Solar
+            </a>
+          </li>
+          <li><a href="#parapente" data-scroll="parapente"><img src="images/parapente.jpg" alt="tren-solar">Parapente</a></li>
+          <li><a href="#cabalgata" data-scroll="cabalgata"> <img src="images/cabalgata-munu.jpg" alt="tren-solar">Cabalgatas</a></li>
+        </ul>
+
+         <a href="#Contacto">Contacto ▾</a>
+        <ul class="submenu">
+          <li><a href="https://wa.me/message/P4U2VW3SBHMTD1" data-scroll="Whatsapp">Whatsapp</a></li>
+        
+          <li><a href="https://www.instagram.com/nali.urieltravel/" data-scroll="instagram">Instagram</a></li>
+        </ul>
+        </ul>
+      </li> <!-- Fin Dropdown Otras Actividades -->
+
+    </ul>
+  </nav>
+</div>
+
+    <!-- Botón de idiomas -->
+    <div class="language-container">
+      <button id="language-toggle" class="btn-idiomas">Idiomas ▼</button>
+      <div id="language-menu" class="language-menu">
+        <button onclick="setLanguage('es')">🇪🇸-Español</button>
+        <button onclick="setLanguage('en')">🇬🇧-English</button>
+        <button onclick="setLanguage('pt')">🇵🇹-Português</button>
+        <button onclick="setLanguage('it')">it -Italiano</button>
+        <button onclick="setLanguage('fr')">🇫🇷-Français</button>
+      </div>
+    </div>
+    <script src="lang.js"></script>
+  <script src="script.js"></script>
+  </section>
+
+  <!-- Carrusel de fondo -->
+  <main class="slider">
+    <div class="overlay">
+      <section id="home" class="hero">
+        <h2 data-lang="home.title">Explora el Norte Argentino</h2>
+        <p data-lang="home.description">Con Nali de Uriel Travel, descubre los mejores destinos turísticos del país.</p>
+        <a href="https://wa.me/1234567890 " target="_blank" class="btn-reserva" data-lang="btnReserva">Reserva tu viaje</a>
+      </section>
+    </div>
+</main>
+   <!-- Dirección y mapa -->
+    
+<div class="direccion-mapa">
+  <h1 data-lang="direction">Encuéntranos en Caseros 740, Local 3B Salta</h1>
+  <div class="centrado">
+    <div class="montaña">
+      <svg width="100%" height="40" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+        <path id="mountain-path"
+          d="M0 70 L20 30 L40 50 L60 20 L80 40 L100 25 L120 50 L140 30 L160 45 L180 30 L200 70 Z"
+          fill="none"
+          stroke="var(--primary-color)"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-dasharray="1000"
+          stroke-dashoffset="1000">
+          <animate
+            xlink:href="#mountain-path"
+            attributeName="stroke-dashoffset"
+            from="1000"
+            to="0"
+            dur="3s"
+            fill="freeze"/>
+        </svg>
+      </div>
+    </div>
+  
+    <div class="mapa">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3538.747122720874!2d-65.41944598503125!3d-24.78398018407826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941bc3b00dc8c301%3A0x257c3bce50ec6ef9!2sSalta!5e0!3m2!1ses!2sar!4v1719558762842!5m2!1ses!2sar"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</div>
+
+      <!-- Montaña SVG centrada -->
+      <div class="centrado">
+        <div class="montaña">
+          <svg width="100%" height="40" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+            <path id="mountain-path"
+              d="M0 70 L20 30 L40 50 L60 20 L80 40 L100 25 L120 50 L140 30 L160 45 L180 30 L200 70 Z"
+              fill="none"
+              stroke="var(--primary-color)"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-dasharray="1000"
+              stroke-dashoffset="1000">
+              <animate
+                xlink:href="#mountain-path"
+                attributeName="stroke-dashoffset"
+                from="1000"
+                to="0"
+                dur="3s"
+                fill="freeze"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+
+   <!-- Destino:-->
+   <section id="Termas-del-Rio-Hondo" class="destino">
+  <h2 data-lang="Termas-del-Rio-Hondo.title">Termas de Río Hondo</h2>
+
+  <div class="intro">
+    <p data-lang="Termas-del-Rio-Hondo.description">
+      ♨️ <strong>¡PROMO IMPERDIBLE 2X1!</strong> Sumérgete en la experiencia más rejuvenecedora del norte argentino. ¡Pagás $400.000 y viajan dos personas! Relájate, desconecta y revitaliza tu cuerpo y alma en las famosas Termas de Río Hondo.
+    </p>
+  </div>
+
+  <div class="itinerario">
+    <h3 data-lang="Termas-del-Rio-Hondo.itinerario">Fin de semana mágico</h3>
+    <p data-lang="Termas-del-Rio-Hondo.itinerario.descripcion">
+      🗓 <strong>Salida: 22 de agosto</strong> - ⏱ <strong>Duración: 3 días y 2 noches</strong> de puro placer. Una escapada perfecta para desconectar del estrés diario y conectar con la tranquilidad de las aguas termales más famosas del noroeste argentino.
+    </p>
+  </div>
+
+  <div class="experiencia">
+    <h3 data-lang="Termas-del-Rio-Hondo.transporte">Transporte y Servicios Premium</h3>
+    <p data-lang="Termas-del-Rio-Hondo.transporte.descripcion">
+      Todo pensado para tu máxima comodidad durante el viaje:
+    </p>
+    <ul>
+      <li data-lang="Termas-del-Rio-Hondo.transporte.item1">🚌 <strong>Traslado ida y vuelta</strong> desde tu ciudad</li>
+      <li data-lang="Termas-del-Rio-Hondo.transporte.item2">👨‍✈️ <strong>Choferes profesionales</strong> y experimentados</li>
+      <li data-lang="Termas-del-Rio-Hondo.transporte.item3">🎯 <strong>Guía acompañante</strong> durante todo el recorrido</li>
+      <li data-lang="Termas-del-Rio-Hondo.transporte.item4">🍹 <strong>Servicio de bar a bordo</strong> - ¡bebidas gratis en el camino!</li>
+      <li data-lang="Termas-del-Rio-Hondo.transporte.item5">📞 <strong>Coordinación permanente</strong> para tu seguridad</li>
+    </ul>
+  </div>
+
+  <div class="destino-final">
+    <h3 data-lang="Termas-del-Rio-Hondo.hotel">Hospedaje en Hotel Los Olivos - Lujo y Comodidad</h3>
+    <p data-lang="Termas-del-Rio-Hondo.hotel.descripcion">
+      Tu refugio perfecto para estos días de relax total:
+    </p>
+
+    <h4 data-lang="Termas-del-Rio-Hondo.hotel.habitaciones">🛏️ Habitaciones equipadas con:</h4>
+    <ul>
+      <li data-lang="Termas-del-Rio-Hondo.hotel.habitacion1"><strong>Somier King Size</strong> para el máximo descanso</li>
+      <li data-lang="Termas-del-Rio-Hondo.hotel.habitacion2"><strong>TV LED 32"</strong> con cable</li>
+      <li data-lang="Termas-del-Rio-Hondo.hotel.habitacion3"><strong>Aire acondicionado frío/calor</strong></li>
+      <li data-lang="Termas-del-Rio-Hondo.hotel.habitacion4"><strong>Secador de pelo</strong></li>
+    </ul>
+
+    <h4 data-lang="Termas-del-Rio-Hondo.hotel.servicios">🎪 Servicios Premium incluidos:</h4>
+    <ul>
+      <li data-lang="Termas-del-Rio-Hondo.hotel.servicio1">☕ <strong>Desayuno buffet gourmet</strong></li>
+      <li data-lang="Termas-del-Rio-Hondo.hotel.servicio2">🏊‍♀️ <strong>Pileta termal al aire libre</strong></li>
+      <li data-lang="Termas-del-Rio-Hondo.hotel.servicio3">🫧 <strong>Jacuzzi integrado</strong></li>
+      <li data-lang="Termas-del-Rio-Hondo.hotel.servicio4">📖 <strong>Sala de estar elegante</strong></li>
+      <li data-lang="Termas-del-Rio-Hondo.hotel.servicio5">🎶 <strong>Cena Show</strong> (¡entretenimiento garantizado!)</li>
+      <li data-lang="Termas-del-Rio-Hondo.hotel.servicio6">🌅 <strong>Terraza solárium</strong> para tomar el sol</li>
+      <li data-lang="Termas-del-Rio-Hondo.hotel.servicio7">🍽️ <strong>Media pensión y pensión completa</strong></li>
+      <li data-lang="Termas-del-Rio-Hondo.hotel.servicio8">🍸 <strong>Bar y meriendas incluidas</strong></li>
+      <li data-lang="Termas-del-Rio-Hondo.hotel.servicio9">🧘‍♀️ <strong>Sala de masajes & Spa</strong> (servicios adicionales)</li>
+      <li data-lang="Termas-del-Rio-Hondo.hotel.servicio10">🛜 <strong>Wi-Fi de alta velocidad</strong></li>
+      <li data-lang="Termas-del-Rio-Hondo.hotel.servicio11">🧑‍⚕️ <strong>Servicio de enfermería</strong></li>
+    </ul>
+  </div>
+
+  <div class="paradas">
+    <h3 data-lang="Termas-del-Rio-Hondo.actividades">Actividades y Excursiones Incluidas</h3>
+    <ul>
+      <li data-lang="Termas-del-Rio-Hondo.actividad1">✨ <strong>City Tour por Termas de Río Hondo</strong></li>
+      <li data-lang="Termas-del-Rio-Hondo.actividad2">✨ <strong>Visita costanera + Dique Frontal</strong></li>
+      <li data-lang="Termas-del-Rio-Hondo.actividad3">✨ <strong>Autódromo y Museo Automotor</strong> *(entradas no incluidas)*</li>
+    </ul>
+
+    <h4 data-lang="Termas-del-Rio-Hondo.excursiones.titulo">🌟 Excursiones Opcionales *(No incluidas)*</h4>
+    <ul>
+      <li data-lang="Termas-del-Rio-Hondo.excursion1">🚗 <strong>Tafí del Valle</strong> - Para los amantes de la naturaleza</li>
+      <li data-lang="Termas-del-Rio-Hondo.excursion2">🚗 <strong>Santiago del Estero</strong> - Descubrí la ciudad madre de la Argentina</li>
+    </ul>
+  </div>
+
+  <div class="servicios">
+    <h3 data-lang="Termas-del-Rio-Hondo.incluye">¿Qué incluye el servicio?</h3>
+    <ul>
+      <li data-lang="Termas-del-Rio-Hondo.incluye.item1">✅ Traslado ida y vuelta desde tu ciudad</li>
+      <li data-lang="Termas-del-Rio-Hondo.incluye.item2">✅ Choferes habilitados y profesionales</li>
+      <li data-lang="Termas-del-Rio-Hondo.incluye.item3">✅ Guía acompañante durante todo el recorrido</li>
+      <li data-lang="Termas-del-Rio-Hondo.incluye.item4">✅ Servicio bar a bordo</li>
+      <li data-lang="Termas-del-Rio-Hondo.incluye.item5">✅ Hospedaje en Hotel Los Olivos</li>
+      <li data-lang="Termas-del-Rio-Hondo.incluye.item6">✅ Desayuno buffet variado</li>
+      <li data-lang="Termas-del-Rio-Hondo.incluye.item7">✅ Pensión completa (Desayuno, almuerzo y cena)</li>
+      <li data-lang="Termas-del-Rio-Hondo.incluye.item8">✅ Pileta termal y jacuzzi</li>
+      <li data-lang="Termas-del-Rio-Hondo.incluye.item9">✅ Cena Show</li>
+      <li data-lang="Termas-del-Rio-Hondo.incluye.item10">✅ Bar y meriendas</li>
+      <li data-lang="Termas-del-Rio-Hondo.incluye.item11">✅ Wi-Fi</li>
+      <li data-lang="Termas-del-Rio-Hondo.incluye.item12">✅ Servicio de enfermería</li>
+      <li data-lang="Termas-del-Rio-Hondo.incluye.item13">✅ Aquagym matutino</li>
+      <li data-lang="Termas-del-Rio-Hondo.incluye.item14">✅ Fango facial de cortesía</li>
+    </ul>
+  </div>
+
+  <div class="info-practica">
+    <h3 data-lang="Termas-del-Rio-Hondo.info">Información práctica</h3>
+    <ul>
+      <li data-lang="Termas-del-Rio-Hondo.info.fecha">📅 <strong>Fecha de salida:</strong> 22 de agosto</li>
+      <li data-lang="Termas-del-Rio-Hondo.info.duracion">⏱ <strong>Duración:</strong> 3 días y 2 noches</li>
+      <li data-lang="Termas-del-Rio-Hondo.info.precio">💰 <strong>Precio especial 2X1:</strong> $400.000 (dos personas)</li>
+      <li data-lang="Termas-del-Rio-Hondo.info.regimen">🍽️ <strong>Régimen:</strong> Pensión completa</li>
+      <li data-lang="Termas-del-Rio-Hondo.info.no-incluye">❌ <strong>No incluye:</strong> Bebidas en comidas, entradas a atracciones, comidas en ruta</li>
+    </ul>
+  </div>
+
+  <div class="llamado-accion">
+    <h3 data-lang="Termas-del-Rio-Hondo.reserva">¿Listo para tu escape termal?</h3>
+    <p data-lang="Termas-del-Rio-Hondo.reserva.texto">
+      ♨️💧✨ ¡Reserva ahora y asegurá tu lugar en esta experiencia única! Viví el mejor fin de semana termal de tu vida en las aguas más cálidas del noroeste argentino. ¡Promo 2x1 por tiempo limitado!
+    </p>
+    <a href="https://wa.me/message/P4U2VW3SBHMTD1" target="_blank" class="btn-reservar" data-lang="Termas-del-Rio-Hondo.reserva.boton">Reservar ahora</a>
+  </div>
+
+  <div class="galeria">
+    <img src="images/termas1.jpg" alt="Termas de Río Hondo 1" data-lang="Termas-del-Rio-Hondo.imagen1.alt">
+    <img src="images/termas2.jpg" alt="Pileta Termal" data-lang="Termas-del-Rio-Hondo.imagen2.alt">
+    <img src="images/termas3.jpg" alt="Hotel Los Olivos" data-lang="Termas-del-Rio-Hondo.imagen3.alt">
+  </div>
+</section>
+
+<!--destino termas del jordan-->
+<section id="termas-rio-jordan" class="destino">
+  <h2 data-lang="termas-rio-jordan.title">Termas del Jordán</h2>
+
+  <div class="intro">
+    <p data-lang="termas-rio-jordan.description">
+      🏞️🧗‍♂️ <strong>TERMAS DEL JORDÁN - UN PARAÍSO ESCONDIDO TE ESPERA</strong> 🌟 Descubrí la joya más secreta de Salta. Imagina aguas termales cristalinas en medio de un paisaje salvaje e imponente... Bienvenido a una experiencia mágica que pocos conocen pero todos recuerdan para siempre.
+    </p>
+  </div>
+
+  <div class="itinerario">
+    <h3 data-lang="termas-rio-jordan.itinerario">Aventura única en la naturaleza</h3>
+    <p data-lang="termas-rio-jordan.itinerario.descripcion">
+      🗓 <strong>Sábado 20 de julio</strong> - ⏰ <strong>Salida: 5:30 AM</strong> desde el <strong>Teleférico de Salta</strong>. Una experiencia tempranera que te recompensará con paisajes y sensaciones únicas. Prepárate para descubrir un rincón mágico que pocos tienen el privilegio de conocer.
+    </p>
+  </div>
+
+  <div class="experiencia">
+    <h3 data-lang="termas-rio-jordan.actividad">¿Qué haremos?</h3>
+    <p data-lang="termas-rio-jordan.actividad.descripcion">
+      Viví una experiencia única que combina aventura y relax:
+    </p>
+    <ul>
+      <li data-lang="termas-rio-jordan.actividad.item1">⛰️ <strong>Trekking de dificultad media</strong> por senderos únicos y auténticos</li>
+      <li data-lang="termas-rio-jordan.actividad.item2">♨️ <strong>Baño en aguas termales naturales</strong> en plena naturaleza virgen</li>
+      <li data-lang="termas-rio-jordan.actividad.item3">🧑‍🌾 <strong>Guiado por expertos locales</strong> que conocen cada rincón secreto</li>
+      <li data-lang="termas-rio-jordan.actividad.item4">📸 <strong>Fotografía en paisajes de ensueño</strong> que no verás en ninguna otra parte</li>
+      <li data-lang="termas-rio-jordan.actividad.item5">🌿 <strong>Conexión total con la naturaleza andina</strong> lejos de multitudes</li>
+    </ul>
+  </div>
+
+  <div class="destino-final">
+    <h3 data-lang="termas-rio-jordan.incluye">Tu aventura incluye todo lo necesario</h3>
+    <p data-lang="termas-rio-jordan.incluye.descripcion">
+      Todo pensado para que solo te preocupes por disfrutar:
+    </p>
+    <ul>
+      <li data-lang="termas-rio-jordan.incluye.item1">✅ <strong>Transporte ida y vuelta</strong> desde Salta Capital</li>
+      <li data-lang="termas-rio-jordan.incluye.item2">✅ <strong>Entrada completa a Termas del Jordán</strong></li>
+      <li data-lang="termas-rio-jordan.incluye.item3">✅ <strong>Guía especializado</strong> durante toda la actividad</li>
+      <li data-lang="termas-rio-jordan.incluye.item4">✅ <strong>Experiencia única e inolvidable</strong> en un lugar exclusivo</li>
+      <li data-lang="termas-rio-jordan.incluye.item5">✅ <strong>Seguridad y comodidad</strong> garantizadas</li>
+    </ul>
+  </div>
+
+  <div class="paradas">
+    <h3 data-lang="termas-rio-jordan.recomendaciones">Lo que debes llevar</h3>
+    <ul>
+      <li data-lang="termas-rio-jordan.recomendacion1">👕 <strong>Ropa cómoda</strong> para caminata y relax</li>
+      <li data-lang="termas-rio-jordan.recomendacion2">👟 <strong>Zapatillas de trekking</strong> (¡imprescindibles!)</li>
+      <li data-lang="termas-rio-jordan.recomendacion3">👙 <strong>Malla o ropa para el agua</strong></li>
+      <li data-lang="termas-rio-jordan.recomendacion4">☀️ <strong>Protector solar y repelente</strong></li>
+      <li data-lang="termas-rio-jordan.recomendacion5">💧 <strong>Agua y vianda personal</strong> para el trekking</li>
+    </ul>
+  </div>
+
+  <div class="servicios">
+    <h3 data-lang="termas-rio-jordan.perfecto">Perfecto para</h3>
+    <ul>
+      <li data-lang="termas-rio-jordan.perfecto.item1">✓ <strong>Amantes de la aventura</strong> auténtica</li>
+      <li data-lang="termas-rio-jordan.perfecto.item2">✓ <strong>Buscadores de experiencias únicas</strong></li>
+      <li data-lang="termas-rio-jordan.perfecto.item3">✓ <strong>Fotógrafos de paisajes naturales</strong></li>
+      <li data-lang="termas-rio-jordan.perfecto.item4">✓ <strong>Quienes quieren desconectar</strong> y reconectar con la naturaleza</li>
+      <li data-lang="termas-rio-jordan.perfecto.item5">✓ <strong>Amantes de lo auténtico</strong> lejos de masificaciones turísticas</li>
+    </ul>
+  </div>
+
+  <div class="info-practica">
+    <h3 data-lang="termas-rio-jordan.info">Información práctica</h3>
+    <ul>
+      <li data-lang="termas-rio-jordan.info.fecha">📅 <strong>Fecha:</strong> Sábado 20 de julio</li>
+      <li data-lang="termas-rio-jordan.info.hora">⏰ <strong>Hora de salida:</strong> 5:30 AM</li>
+      <li data-lang="termas-rio-jordan.info.lugar">📍 <strong>Punto de encuentro:</strong> Teleférico de Salta</li>
+      <li data-lang="termas-rio-jordan.info.precio">💰 <strong>Precio total:</strong> $70.000</li>
+      <li data-lang="termas-rio-jordan.info.reserva">💳 <strong>Reserva:</strong> 50% no reembolsable</li>
+      <li data-lang="termas-rio-jordan.info.duracion">⏱ <strong>Duración:</strong> Día completo</li>
+      <li data-lang="termas-rio-jordan.info.dificultad">🎒 <strong>Dificultad:</strong> Media (trekking)</li>
+    </ul>
+  </div>
+
+  <div class="llamado-accion">
+    <h3 data-lang="termas-rio-jordan.reserva">¿Listo para descubrir este paraíso escondido?</h3>
+    <p data-lang="termas-rio-jordan.reserva.texto">
+      🏞️🌿✨ ¡Reserva ahora tu lugar! Este paraíso escondido tiene cupos limitados. No esperes al último minuto porque se agota rápido. Viví una transformación única donde la naturaleza te abraza y las aguas te curan.
+    </p>
+    <a href="https://wa.me/message/P4U2VW3SBHMTD1" target="_blank" class="btn-reservar" data-lang="termas-rio-jordan.reserva.boton">Reservar ahora</a>
+  </div>
+
+  <div class="galeria">
+    <img src="images/termas-jordan-menu.jpg" alt="Termas del Jordán 1" data-lang="termas-rio-jordan.imagen1.alt">
+    <img src="images/termas-jordan1.jpg" alt="Trekking hacia las Termas" data-lang="termas-rio-jordan.imagen2.alt">
+    <img src="images/Termas del río Jordán, Jujuy.jpg" alt="Aguas termales naturales" data-lang="termas-rio-jordan.imagen3.alt">
+  </div>
+</section>
+ 
+<!---destino Iruya-->
+
+<section id="Iruya" class="destino">
+
+<h2 data-lang="Iruya.title">Iruya - Magia entre los cerros</h2>
+
+<div class="intro">
+<p data-lang="iruya.description">
+🏔️ <strong>VIVÍ LA ENCATADORA EXPERIENCIA DEL PUEBLO DE IRUYA, EL PUEBLO COLGADO ENTRE LAS MONTAÑAS</strong> 🌄 Te traemos algo distinto y único para que vivas Iruya de una manera inolvidable. ¿Te atreves a descubrir el pueblo más vertiginoso de Argentina?
+</p>
+</div>
+
+<div class="itinerario">
+<h3 data-lang="iruya.itinerario">Aventura extrema en las alturas</h3>
+<p data-lang="iruya.descripcion">
+🗓 <strong>Salida: 16 de agosto</strong> desde Salta Capital - ⏱ <strong>Duración: 2 días y 1 noche</strong> de pura magia. Una experiencia única que te llevará a uno de los pueblos más espectaculares y auténticos de toda América.
+</p>
+</div>
+
+<div class="experiencia">
+<h3 data-lang="iruya.incluye">Todo incluido para tu comodidad</h3>
+<p data-lang="iruya.descripcion">
+Todo pensado para que solo te preocupes por disfrutar esta experiencia única:
+</p>
+<ul>
+<li  data-lang="iruya.incluye.item1">🚐 <strong>Traslado ida y vuelta</strong> desde Salta Capital</li>
+<li data-lang="iruya.incluye.item2">🛏️ <strong>Hospedaje especial</strong> con desayuno incluido</li>
+<li data-lang="iruya.incluye.item3">🧭 <strong>Guía local experto</strong> que conoce cada rincón secreto</li>
+<li data-lang="iruya.incluye.item4">🎯 <strong>Coordinación permanente</strong> para tu seguridad</li>
+<li data-lang="iruya.incluye.item5">✨️ <strong>Seguro de viaje</strong> incluido</li>
+<li data-lang="iruya.incluye.item6">📸 <strong>Experiencia única e inolvidable</strong> garantizada</li>
+</ul>
+</div>
+
+<div class="destino-final">
+<h3 data-lang="iruya.excursiones">Excursiones Opcionales - Elige tu aventura</h3>
+<p data-lang="iruya.descripcion">
+Precios especiales disponibles para estas experiencias únicas:
+</p>
+<ul>
+<li data-lang="iruya.excursiones.item1">🌙 <strong>Caminata nocturna por Iruya</strong> - Magia bajo las estrellas</li>
+<li data-lang="iruya.excursiones.item2">⛰️ <strong>Caminata a San Isidro</strong> - Conecta con la historia ancestral</li>
+<li data-lang="iruya.excursiones.item3">💧 <strong>Caminata a La Cascada - Cataratas los Colorados</strong> - Espectáculo natural impresionante</li>
+</ul>
+</div>
+
+<div class="paradas">
+<h3 data-lang="iruya.beneficios">Beneficios Exclusivos</h3>
+<ul>
+<li data-lang="iruya.beneficios.item1">✨ <strong>Exclusividad</strong> - Pocas agencias llegan hasta este paraíso vertical</li>
+<li data-lang="iruya.beneficios.item2">🎨 <strong>Autenticidad</strong> - Conexión con la cultura ancestral iruyana</li>
+<li data-lang="iruya.beneficios.item3">🛡️ <strong>Seguridad</strong> - Todo pensado para tu tranquilidad</li>
+<li data-lang="iruya.beneficios.item4">📸 <strong>Fotos únicas</strong> - Paisajes que harán envidia a cualquier fotógrafo</li>
+<li data-lang="iruya.beneficios.item5">🌄 <strong>Experiencia local</strong> - Guías que aman y conocen su tierra</li>
+</ul>
+</div>
+
+<div class="servicios">
+<h3 data-lang="iruya.perfecto">Perfecto para</h3>
+<ul>
+<li data-lang="iruya.perfecto.item1">✓ <strong>Amantes de la aventura extrema</strong></li>
+<li data-lang="iruya.perfecto.item2">✓ <strong>Buscadores de paisajes únicos</strong></li>
+<li data-lang="iruya.perfecto.item3">✓ <strong>Fotógrafos de naturaleza</strong></li>
+<li data-lang="iruya.perfecto.item4">✓ <strong>Quienes quieren vivir algo diferente</strong></li>
+<li data-lang="iruya.perfecto.item5">✓ <strong>Almas que buscan conectar con lo auténtico</strong></li>
+</ul>
+</div>
+
+<div class="info-practica">
+<h3 data-lang="iruya.info">Información práctica</h3>
+<ul>
+<li data-lang="iruya.info1">📅 <strong>Fecha de salida:</strong> 16 de agosto</li>
+<li data-lang="iruya.info2">⏱ <strong>Duración:</strong> 2 días y 1 noche</li>
+<li data-lang="iruya.info3">💰 <strong>Precio:</strong> $180.000 por persona</li>
+<li data-lang="iruya.info4">📍 <strong>Salida desde:</strong> Salta Capital</li>
+<li>🏔️ <strong>Altitud:</strong> 2700 metros sobre el nivel del mar</li>
+</ul>
+</div>
+
+<div class="info-practica">
+<h3 data-lang="iruya.no-incluye">No incluye</h3>
+<ul>
+<li data-lang="iruya.no-incluye.item1">❌ Almuerzos y cenas</li>
+<li data-lang="iruya.no-incluye.item2">❌ Bebidas</li>
+<li data-lang="iruya.no-incluye.item3">❌ Comidas en ruta</li>
+<li data-lang="iruya.no-incluye.item4">❌ Excursiones opcionales</li>
+</ul>
+</div>
+
+<div class="llamado-accion">
+<h3 data-lang="iruya.reserva">¿Listo para vivir la aventura más extrema de tu vida?</h3>
+<p data-lang="iruya.texto-reserva">
+🏔️✨ ¡Reserva ahora tu lugar! Iruya tiene cupos limitados y la demanda es alta. No dejes para mañana esta experiencia única que solo se vive una vez. Donde las montañas abrazan los sueños y los recuerdos son para siempre.
+</p>
+  <a href="https://wa.me/3876840096" target="_blank" class="btn-reservar">Reservar ahora</a>
+</div>
+
+<div class="galeria">
+<img src="images/iruya-1.jpg" alt="Iruya pueblo colgado 1">
+<img src="images/iruya.paisaje.jpg">
+<img src="images/Iruya, Salta.jpg" alt="Caminata en Iruya">
+</div>
+
+</section>
+
+<!--destino salinas-->
+
+<section id="Salinas" class="destino">
+
+<h2 data-lang="Salinas.title">Salinas Grandes</h2>
+
+<div class="intro">
+<p data-lang="salinas.description"> 🌞 <strong>Descubre un mundo blanco y multicolor</strong> en esta inolvidable excursión a <strong>Salinas Grandes y Purmamarca</strong>, dos de los destinos más emblemáticos del norte argentino. Un viaje que te llevará a través de paisajes surrealistas, culturas ancestrales y alturas imponentes, hasta llegar al espejo salino que parece tocar el cielo.
+</p>
+</div>
+
+<div class="itinerario">
+<h3 data-lang="salinas.itinerario">Tu aventura comienza temprano</h3>
+<p data-lang="salinas.descripcion">
+Salida desde Salta Capital entre las <strong>6:30 y 7:30 am</strong>, dirección a Jujuy. Atravesaremos la <strong>Ruta 9</strong>, rodeados de paisajes desérticos y culturas vivas, pasando por pueblos como <strong>Volcán (2070 msnm)</strong> y <strong>Tumbaya</strong>, hasta llegar al mágico <strong>Cerro de los 7 Colores</strong> y su encantador pueblo: <strong>Purmamarca</strong>.
+</p>
+</div>
+
+<div class="punto-clave">
+<h3 data-lang="salinas.purmamarca">Purmamarca: El color de la tradición</h3>
+<p data-lang="salinas.descripcion">
+Este pintoresco pueblo de adobe, a los pies del <strong>Cerro de los 7 Colores</strong>, es un destino que enamora al primer vistazo. Tendrás tiempo libre para explorar sus callecitas, visitar su plaza principal o llevarte un recuerdo único de sus artesanías autóctonas.
+</p>
+</div>
+
+<div class="experiencia">
+<h3 data-lang="salinas.salinas">Salinas Grandes: El mar de sal bajo el cielo andino</h3>
+<p data-lang="salinas.descripcion">
+Desde Purmamarca, tomamos la <strong>Ruta 52</strong>, una de las más altas del país, que nos lleva hasta los <strong>4.170 metros sobre el nivel del mar</strong>, al corazón de <strong>Salinas Grandes</strong> — un auténtico mar de sal que se extiende hasta donde alcanza la vista.
+</p>
+<ul>
+<li data-lang="salinas.descripcion.item1">Visita una <strong>casa completamente construida en sal</strong> (solo el techo y algunas vigas son de madera).</li>
+<li data-lang="salinas.descripcion.item2">Conoce los <strong>piletones de extracción de sal</strong> y descubre cómo se extrae este recurso natural.</li>
+<li data-lang="salinas.descripcion.item3">Vive una experiencia única: <strong>caminar sobre la sal</strong> y disfrutar de un paisaje surrealista, ideal para fotos inolvidables.</li>
+</ul>
+<p data-lang="salinas.nota"><strong>Nota:</strong> La entrada incluye una pequeña contribución para el guía local (aprox. $4.000 por persona).</p>
+</div>
+
+<div class="almuerzo">
+<h3 data-lang="salinas.almuerzo">Tiempo libre para almorzar en Purmamarca</h3>
+<p data-lang="salinas.descripcion">
+Tras la visita a Salinas, regresamos a Purmamarca al mediodía. Allí tendrás tiempo libre para almorzar (no incluido) y probar platos típicos como el <strong>locro, humitas o empanadas salteñas</strong>.
+</p>
+</div>
+
+<div class="exploracion">
+<h3 data-lang="salinas.paseo">Paseo de los Colorados: Naturaleza en estado puro</h3>
+<p data-lang="salinas.descripcion">
+Después del almuerzo, nos dirigimos al <strong>Paseo de los Colorados</strong>, un sendero de aproximadamente 3 kilómetros bordeado de formaciones rojizas que contrastan con el cielo azul. Ideal para una breve caminata, tomar fotos y conectarse con la naturaleza más pura.
+</p>
+</div>
+
+<div class="servicios">
+<h3 data-lang="salinas.incluye">¿Qué incluye el servicio?</h3>
+<ul>
+<li data-lang="salinas.incluye.item1">✅ Traslado ida y vuelta desde tu hotel en Salta Capital</li>
+<li data-lang="salinas.incluye.item2">✅ Seguro de viaje</li>
+<li data-lang="salinas.incluye.item3">✅ Guía profesional durante todo el recorrido</li>
+<li data-lang="salinas.incluye.item4">✅ Paradas en los puntos más destacados del itinerario</li>
+</ul>
+</div>
+
+<div class="info-practica">
+<h3 data-lang="salinas.info">Información práctica</h3>
+<ul>
+<li data-lang="salinas.info.item1">🕒 <strong>Horario aproximado de regreso:</strong> Entre las 19:00 y las 20:00 horas.</li>
+<li data-lang="salinas.info.item2">📍 <strong>Paradas incluidas:</strong> Purmamarca (con tiempo libre), Balcón de la Cuesta (vista panorámica), Salinas Grandes (visita guiada), Paseo de los Colorados (caminata opcional).</li>
+</ul>
+</div>
+
+<div class="llamado-accion">
+<h3 data-lang="salinas.reserva">¿Listo para tu aventura?</h3>
+<p data-lang="salinas.texto-reserva">
+📞 ¡Reserva tu experiencia hoy! Vive una jornada inolvidable entre paisajes de ensueño, alturas imponentes y colores que desafían la imaginación. Ideal para amantes de la naturaleza, la fotografía y las experiencias únicas.
+</p>
+  <a href="https://wa.me/message/P4U2VW3SBHMTD1 " target="_blank" class="btn-reservar">Reservar ahora</a>
+  </div>
+
+
+<div class="galeria">
+<img src="images/salinas-photo.jpg" alt="salinas 1">
+<img src="images/salinas grandes.jpg" alt="salinas 2">
+<img src="images/salinas-pareja.jpg" alt="salinas 3">
+</div>
+
+</section>
+
+   <!-- Destino: Cachi -->
+<section id="cachi" class="destino">
+
+<h2 data-lang="Cachi.title">Cachi</h2>
+
+<div class="intro">
+<p data-lang="cachi.description">
+🌄 <strong>Descubre la magia de los Valles Calchaquíes</strong> en esta inolvidable excursión a **Cachi**, uno de los pueblos más encantadores del norte argentino. Un viaje que combina paisajes imponentes, historia colonial y la serenidad de un rincón andino que parece detenido en el tiempo.
+</p>
+</div>
+
+<div class="itinerario">
+<h3 data-lang="cachi.itinerario">Tu aventura comienza temprano</h3>
+<p data-lang="cachi.descripcion">
+Salida desde Salta Capital entre las <strong>6:30 y 7:30 am</strong>, con destino a Cachi. Durante el trayecto, atravesaremos paisajes únicos y pueblos con historia, como <strong>Cerrillos, La Merced y El Carril</strong>, hasta llegar a la <strong>Quebrada de Escoipe</strong>, un rincón verde y selvático que despierta todos los sentidos.
+</p>
+</div>
+
+<div class="punto-clave">
+<h3 data-lang="cachi.cuesta">Cuesta del Obispo: una subida inolvidable</h3>
+<p data-lang="cachi.descripcion">
+Prepárate para una de las rutas más espectaculares del norte argentino. La <strong>Cuesta del Obispo</strong> te llevará hasta los <strong>3.348 metros sobre el nivel del mar</strong>, pasando por el famoso <strong>Piedra del Molino</strong>, el punto más alto del recorrido. Allí encontrarás la <strong>Capilla de San Rafael</strong>, un lugar ideal para detenerte, tomar fotos y admirar la majestuosidad de los Andes.
+</p>
+</div>
+
+<div class="experiencia">
+<h3 data-lang="cachi.los-cardones">Parque Nacional Los Cardones: naturaleza centenaria</h3>
+<p data-lang="cachi.descripcion">
+Al descender, ingresaremos al <strong>Parque Nacional Los Cardones</strong>, hogar de imponentes cactus que han resistido el paso del tiempo. No te pierdas el <strong>Último Cardón</strong>, un símbolo de esta región y uno de los puntos más fotografiados del recorrido.
+</p>
+</div>
+
+<div class="destino-final">
+<h3 data-lang="cachi.llegada">Llegada a Cachi: el alma de los Valles Calchaquíes</h3>
+<p data-lang="cachi.descripcion">
+Y por fin… ¡llegamos a **Cachi**! Este pintoresco pueblo colonial, con sus **calles empedradas y arquitectura tradicional**, parece sacado de una postal. Visita el **Museo Arqueológico**, lleno de tesoros del pasado, y la **Iglesia Parroquial del siglo XVII**, joya de la arquitectura regional.
+</p>
+<p data-lang="cachi.descripcion">
+Tendrás <strong>2 horas de tiempo libre</strong> para almorzar (no incluido), recorrer o simplemente disfrutar de la paz y la belleza de este rincón único de Argentina.
+</p>
+</div>
+
+<div class="paradas">
+<h3 data-lang="cachi.paradas">Paradas destacadas del recorrido</h3>
+<ul>
+<li data-lang="cachi.paradas.item1">📍 Pie de la Cuesta</li>
+<li data-lang="cachi.paradas.item2">📍 Balcón de la Cuesta (vista panorámica)</li>
+<li data-lang="cachi.paradas.item4">📍 Piedra del Molino (máxima altura)</li>
+<li data-lang="cachi.paradas.item5">📍 Parque Nacional Los Cardones</li>
+<li data-lang="cachi.paradas.item6">📍 Especiero</li>
+<li data-lang="cachi.paradas.item7">📍 Cachi (visita de 2 horas)</li>
+</ul>
+</div>
+
+<div class="servicios">
+<h3 data-lang="cachi.incluye">¿Qué incluye el servicio?</h3>
+<ul>
+<li data-lang="cachi.incluye.item1">✅ Traslado ida y vuelta desde tu hotel en Salta Capital</li>
+<li data-lang="cachi.incluye.item2">✅ Seguro de viaje</li>
+<li data-lang="cachi.incluye.item3">✅ Guía profesional durante todo el recorrido</li>
+<li data-lang="cachi.incluye.item4">✅ Paradas en los puntos más destacados del itinerario</li>
+</ul>
+</div>
+
+<div class="info-practica">
+<h3 data-lang="cachi.info">Información práctica</h3>
+<ul>
+<li data-lang="cachi.incluye.item1">🚌 <strong>Salidas diarias</strong></li>
+<li data-lang="cachi.incluye.item2">🕒 <strong>Horario de salida:</strong> 6:30 - 7:30 am</li>
+<li data-lang="cachi.incluye.item3">🌇 <strong>Regreso estimado:</strong> entre las 19:00 y 20:00 horas</li>
+</ul>
+</div>
+
+<div class="llamado-accion">
+<h3 data-lang="cachi.reserva">¿Listo para conocer Cachi?</h3>
+<p data-lang="cachi.texto-reserva">
+🌵✨ ¡Reserva tu excursión hoy! Vive una jornada inolvidable entre paisajes ancestrales, historia y la serenidad de un pueblo que parece detenido en el tiempo. Ideal para amantes de la naturaleza, la fotografía y la cultura regional.
+</p>
+  <a href="https://wa.me/message/P4U2VW3SBHMTD1 " target="_blank" class="btn-reservar">Reservar ahora</a>
+  </div>
+
+
+<div class="galeria">
+<img src="images/cachi.jpg" alt="Cachi 1">
+<img src="images/colonial architecture cachi argentina.jpg" alt="Cachi 2">
+<img src="images/cachi33.jpg" alt="Cachi 3">
+</div>
+</section>
+<!--destino humahuaca mas hornocal-->
+
+<section id="Humahuaca-mas-Hornocal" class="destino">
+
+<h2 data-lang="Humahuaca-mas-Hornocal.title">Humahuaca + Hornocal</h2>
+
+<div class="intro">
+<p data-lang="Humahuaca-mas-Hornocal.description">
+🌈 <strong>Descubre la Magia de Colores de Humahuaca y el Majestuoso Hornocal</strong> en una excursión única desde Salta. Un viaje épico por uno de los paisajes más vibrantes del norte argentino, donde la naturaleza, la historia y la cultura andina se unen en una experiencia inolvidable.
+</p>
+</div>
+
+<div class="itinerario">
+<h3 data-lang="Humahuaca-mas-Hornocal.itinerario">Tu aventura comienza temprano</h3>
+<p data-lang="Humahuaca-mas-Hornocal.descripcion">
+Salida desde Salta Capital a las <strong>6:30 am</strong>, con traslado cómodo y seguro hacia el norte jujeño. Atravesaremos pueblos pintorescos como <strong>San Salvador de Jujuy</strong>, punto de partida hacia la histórica <strong>Quebrada de Humahuaca</strong>, Patrimonio de la Humanidad. Recorreremos encantadores pueblos como <strong>Volcán, Tumbaya y Purmamarca</strong>, hogar del famoso Cerro de los Siete Colores.
+</p>
+</div>
+
+<div class="experiencia">
+<h3 data-lang="Humahuaca-mas-Hornocal.quebrada">La Quebrada de Humahuaca: un espectáculo de colores y tradiciones</h3>
+<p data-lang="Humahuaca-mas-Hornocal.descripcion">
+Prepárate para maravillarte con uno de los paisajes más vibrantes de América. La <strong>Quebrada de Humahuaca</strong> es un corredor natural que conecta culturas durante más de 10 mil años. Cada pueblo tiene su encanto único:
+</p>
+<ul>
+<li data-lang="Humahuaca-mas-Hornocal.quebrada.item1">🎨 <strong>Purmamarca</strong> - El pueblo bajo el Cerro de los Siete Colores</li>
+<li data-lang="Humahuaca-mas-Hornocal.quebrada.item2">🎭 <strong>Tilcara</strong> - Hogar del famoso Pucará y artesanías ancestrales</li>
+<li data-lang="Humahuaca-mas-Hornocal.quebrada.item3">🏛️ <strong>Humahuaca</strong> - Ciudad histórica con el Monumento a la Independencia</li>
+<li data-lang="Humahuaca-mas-Hornocal.quebrada.item4">🏪 <strong>Plazas artesanales</strong> - Donde comprar auténtica artesanía local</li>
+</ul>
+<p data-lang="Humahuaca-mas-Hornocal.quebrada.item7">Durante el recorrido haremos paradas estratégicas para disfrutar de las mejores vistas, conocer la cultura local y capturar fotos inolvidables.</p>
+</div>
+
+<div class="destino-final">
+<h3 data-lang="Humahuaca-mas-Hornocal.llegada">Hornocal: El Cerro de 14 Colores</h3>
+<p data-lang="Humahuaca-mas-Hornocal.descripcion">
+La joya de la corona nos espera en <strong>Hornocal</strong>, una formación geológica única ubicada a 25 km de Humahuaca. A 4350 metros de altura, este gigante estratificado ofrece un espectáculo visual sin igual: <strong>14 capas de colores naturales</strong> que se extienden ante tus ojos como si la tierra misma hubiera pintado su obra maestra.
+</p>
+<p data-lang="Humahuaca-mas-Hornocal.quebrada.item8">Entre las maravillas incluidas:</p>
+<ul>
+<li data-lang="Humahuaca-mas-Hornocal.quebrada.item9">🌈 <strong>Hornocal</strong> - El famoso Cerro de 14 Colores a 4350 metros</li>
+<li data-lang="Humahuaca-mas-Hornocal.quebrada.item10">🧭 <strong>Balcón panorámico</strong> - Vista espectacular del majestuoso cerro</li>
+<li data-lang="Humahuaca-mas-Hornocal.quebrada.item1">🌍 <strong>Formación geológica única</strong> - 75 millones de años de historia</li>
+</ul>
+<p>En el camino de regreso visitaremos el <strong>Trópico de Capricornio</strong> en Huacalera y la <strong>Paleta del Pintor</strong> en Maimará.</p>
+</div>
+
+<div class="paradas">
+<h3 data-lang="Humahuaca-mas-Hornocal.paradas">Paradas incluidas durante el recorrido</h3>
+<ul>
+<li data-lang="Humahuaca-mas-Hornocal.quebrada.item11">📍 <strong>Purmamarca</strong> - Cerro de los Siete Colores y plaza artesanal</li>
+<li data-lang="Humahuaca-mas-Hornocal.quebrada.item12">📍 <strong>Tilcara</strong> - Pueblo ancestral y tiempo libre</li>
+<li data-lang="Humahuaca-mas-Hornocal.quebrada.item13">📍 <strong>Humahuaca</strong> - Ciudad histórica y almuerzo incluido</li>
+<li data-lang="Humahuaca-mas-Hornocal.quebrada.item14">📍 <strong>Hornocal</strong> - El Cerro de 14 Colores</li>
+<li data-lang="Humahuaca-mas-Hornocal.quebrada.item15">📍 <strong>Trópico de Capricornio</strong> - En Huacalera</li>
+<li data-lang="Humahuaca-mas-Hornocal.quebrada.item16">📍 <strong>Paleta del Pintor</strong> - En Maimará</li>
+</ul>
+</div>
+
+<div class="servicios">
+<h3 data-lang="Humahuaca-mas-Hornocal.incluye">¿Qué incluye el servicio?</h3>
+<ul>
+<li data-lang="Humahuaca-mas-Hornocal.quebrada.item17">✅ Traslado ida y vuelta desde tu hotel en Salta Capital</li>
+<li data-lang="Humahuaca-mas-Hornocal.quebrada.item18">✅ Seguro de viaje</li>
+<li data-lang="Humahuaca-mas-Hornocal.quebrada.item19">✅ Guía profesional durante todo el recorrido</li>
+<li data-lang="Humahuaca-mas-Hornocal.quebrada.item20">✅ Almuerzo típico en Humahuaca</li>
+<li data-lang="Humahuaca-mas-Hornocal.quebrada.item21">✅ Paradas en los puntos más destacados del itinerario</li>
+<li data-lang="Humahuaca-mas-Hornocal.quebrada.item222">✅ Entradas a todas las atracciones</li>
+</ul>
+</div>
+
+<div class="info-practica">
+<h3 data-lang="Humahuaca-mas-Hornocal.info">Información práctica</h3>
+<ul>
+<li data-lang="Humahuaca-mas-Hornocal.quebrada.item23">🚌 <strong>Salidas diarias</strong></li>
+<li data-lang="Humahuaca-mas-Hornocal.quebrada.item24">🕒 <strong>Horario de salida:</strong> 6:30 am</li>
+<li data-lang="Humahuaca-mas-Hornocal.quebrada.item25">🌇 <strong>Regreso estimado:</strong> 20:30 horas</li>
+<li data-lang="Humahuaca-mas-Hornocal.quebrada.item26">⏱ <strong>Duración total:</strong> 14 horas aproximadamente</li>
+</ul>
+</div>
+
+<div class="llamado-accion">
+<h3 data-lang="Humahuaca-mas-Hornocal.reserva">¿Listo para tu aventura multicolor?</h3>
+<p data-lang="Humahuaca-mas-Hornocal.texto-reserva">
+🌈🏔️✨ ¡Reserva tu excursión hoy! Vive un día lleno de naturaleza, historia, cultura andina y los paisajes más vibrantes de Argentina. Ideal para amantes de la aventura, la fotografía y la naturaleza. ¡No te lo pierdas!
+</p>
+  <a href="https://wa.me/message/P4U2VW3SBHMTD1" target="_blank" class="btn-reservar">Reservar ahora</a>
+</div>
+
+<div class="galeria">
+<img src="images/humahuaca.cartel.jpg" alt="Humahuaca 1">
+<img src="images/Humahuaca Argentina.jpg" alt="Hornocal">
+<img src="images/hornocal-menu.jpg" alt="Quebrada de Humahuaca">
+</div>
+
+</section>
+
+<!-- Destino: Cafayate -->
+
+<section id="Cafayate" class="destino">
+
+<h2 data-lang="Cafayate.title">Cafayate</h2>
+
+
+<div class="intro">
+<p data-lang="cafayate.description">
+🍇 <strong>Descubre Cafayate y la Quebrada de las Conchas</strong> en una excursión única desde Salta. Un viaje inolvidable por uno de los paisajes más mágicos del norte argentino, donde la naturaleza, la historia y el buen vino se unen en una experiencia imperdible.
+</p>
+</div>
+
+<div class="itinerario">
+<h3 data-lang="cafayate.itinerario">Tu aventura comienza temprano</h3>
+<p data-lang="cafayate.descripcion1">
+Salida desde Salta Capital entre las <strong>6:30 y 7:30 am</strong>, con traslado cómodo y seguro hacia el sur salteño. Atravesaremos pueblos pintorescos como <strong>Cerrillos, La Merced y El Carril</strong>, conocidos por su tradición tabacalera, hasta llegar al histórico <strong>Coronel Moldes</strong>. Allí disfrutarás de una vista privilegiada del <strong>Dique Cabra Corral</strong> y podrás conocer <strong>Alemania</strong>, un pueblo fantasma que guarda historias del pasado.
+</p>
+</div>
+
+<div class="experiencia">
+<h3 data-lang="cafayate.quebrada">La Quebrada de las Conchas: un espectáculo de la naturaleza</h3>
+<p data-lang="cafayate.descripcion2">
+Prepárate para maravillarte con uno de los paisajes más singulares del país. La <strong>Quebrada de las Conchas</strong> es un lienzo natural esculpido por el viento y el agua durante millones de años. Cada formación rocosa tiene su nombre y su historia:
+</p>
+<ul>
+<li data-lang="paradas.item2" >🌋 La Garganta del Diablo</li>
+<li data-lang="paradas.item3">🎤 El Anfiteatro</li>
+<li data-lang="paradas.item4">🐸 El Sapo</li>
+<li data-lang="paradas.item5">🏰 Los Castillos</li>
+<li data-lang="paradas.item6">✝️ Las Tres Cruces</li>
+<li data-lang="paradas.item7">🪨 La Yesera</li>
+</ul>
+<p data-lang="info.paradas.item1">Durante el recorrido haremos paradas estratégicas para disfrutar de las mejores vistas y capturar fotos inolvidables.</p>
+</div>
+
+<div class="destino-final">
+<h3 data-lang="cafayate.llegada">Llegada a Cafayate: Capital del vino en altura</h3>
+<p data-lang="cafayate.descripcion3">
+Al llegar a **Cafayate**, te sorprenderá su entorno natural: viñedos que se pierden en el horizonte y montañas que enmarcan una de las villas más lindas del país.
+</p>
+<p data-lang="paradas.item8">Entre las visitas incluidas:</p>
+<ul>
+<li data-lang="paradas.item9">⛪ La **Iglesia Catedral de Cafayate** (inaugurada en 1895), una de las tres iglesias con cinco naves paralelas en toda América.</li>
+<li data-lang="paradas.item10">🍷 **Bodegas locales** como Vasija Secreta, Tierra Colorada o Finca El Recreo, donde disfrutarás de un recorrido guiado por expertos y terminarás con una **degustación de los famosos vinos de altura** de la región.</li>
+</ul>
+<p data-lang="paradas.item11">Tendrás tiempo libre para almorzar (no incluido) y explorar el pueblo a tu gusto.</p>
+</div>
+
+<div class="paradas">
+<h3 data-lang="cafayate.paradas">Paradas incluidas durante el recorrido</h3>
+<ul>
+<li class="paradas.item12">📍 Talapampa – fábrica de alfajores artesanales</li>
+<li class="paradas.item13">📍 Garganta del Diablo</li>
+<li class="paradas.item14">📍 El Anfiteatro</li>
+<li class="paradas.item15">📍 Las Tres Cruces</li>
+<li class="paradas.item17">📍 La Yesera</li>
+<li class="paradas.item18">📍 Bodegas: Vasija Secreta, Tierra Colorada o Finca El Recreo</li>
+</ul>
+</div>
+
+<div class="servicios">
+<h3 data-lang="cafayate.incluye">¿Qué incluye el servicio?</h3>
+<ul>
+<li data-lang="cafayate.incluye.item1">✅ Traslado ida y vuelta desde tu hotel en Salta Capital</li>
+<li data-lang="cafayate.incluye.item2">✅ Seguro de viaje</li>
+<li data-lang="cafayate.incluye.item3">✅ Guía profesional durante todo el recorrido</li>
+<li data-lang="cafayate.incluye.item4">✅ Paradas en los puntos más destacados del itinerario</li>
+</ul>
+</div>
+
+<div class="info-practica">
+<h3 data-lang="cafayate.info">Información práctica</h3>
+<ul>
+<li data-lang="cafayate.info1">🚌 <strong>Salidas diarias</strong></li>
+<li data-lang="cafayate.info2">🕒 <strong>Horario de salida:</strong> entre las 6:30 y 7:30 am</li>
+<li data-lang="cafayate.info3">🌇 <strong>Regreso estimado:</strong> entre las 19:00 y 20:00 horas</li>
+</ul>
+</div>
+
+<div class="llamado-accion">
+<h3 data-lang="cafayate.reserva">¿Listo para tu aventura en Cafayate?</h3>
+<p data-lang="cafayate.texto-reserva">
+🌄🍇✨ ¡Reserva tu excursión hoy! Vive un día lleno de naturaleza, historia, cultura y los mejores vinos de altura. Ideal para amantes de la aventura, la fotografía y el buen vino. ¡No te lo pierdas!
+</p>
+  <a href="https://wa.me/message/P4U2VW3SBHMTD1 " target="_blank" class="btn-reservar">Reservar ahora</a>
+  </div>
+
+
+<div class="galeria">
+<img src="images/Ruta 68 Los Castillos, Cafayate, Salta.jpg" alt="Cafayate 1">
+<img src="images/cafayate4.jpg" alt="Cafayate 2">
+<img src="images/Cafayate, Salta_ Argentina_.jpg" alt="Cafayate 3">
+</div>
+
+</section>
+   
+<!-- Destino: City Tour Salta -->
+
+  <section id="city-tour-salta" class="destino">
+    <h2 data-lang="city-tour-salta.title">🌆 City Tour por Salta</h2>
+    <p data-lang="city-tour-salta.description">Descubre la ciudad con un servicio único y cómodo.</p>
+    <div class="intro">
+      <p data-lang="city-tour-salta.intro">Recorre los puntos más emblemáticos de Salta Capital con un guía profesional. Ideal para quienes visitan la ciudad por primera vez.</p>
+    </div>
+    <div class="itinerario">
+      <h3 data-lang="city-tour-salta.itinerario">📍 Puntos del recorrido</h3>
+      <ul>
+        <li data-lang="city-tour-salta.itinerario1">Plaza 9 de Julio y Catedral Basílica</li>
+        <li data-lang="city-tour-salta.itinerario2">Convento de San Francisco</li>
+        <li data-lang="city-tour-salta.itinerario3">Mirador del Cerro San Bernardo</li>
+        <li data-lang="city-tour-salta.itinerario4">Barrio Güemes con vistas panorámicas</li>
+        <li data-lang="city-tour-salta.itinerario5">Museo Pío Leyra (opcional)</li>
+      </ul>
+    </div>
+ <div class="servicios">
+      <h3 data-lang="city-tour-salta.servicio">🚐 Servicio incluido</h3>
+      <ul>
+        <li data-lang="city-tour-salta.servicios.item1" >✅ Traslado ida y vuelta desde tu hotel</li>
+        <li data-lang="city-tour-salta.servicios.item2">✅ Guía profesional durante todo el recorrido</li>
+        <li data-lang="city-tour-salta.servicios.item3">✅ Paradas estratégicas en los puntos más emblemáticos</li>
+      </ul>
+    </div>
+    <div class="precio">
+      <h3 data-lang="city-tour-salta.precio">💰 Precio por persona: $35.000</h3>
+      <p data-lang="city-tour-salta.reserva">Un paseo accesible, perfecto para familias, parejas y viajeros solitarios.</p>
+    </div>
+    <a href="https://wa.me/message/P4U2VW3SBHMTD1" target="_blank" class="btn-reservar">Reservar ahora</a>
+    <div class="galeria">
+<img src="images/salta-menu.jpg" alt="Salta">
+<img src="images/Salta - Argentina.jpg" alt="salta2">
+<img src="images/Catedral Basílica de Salta y Santuario del Señor y….jpg" alt="salta3">
+</div>
+  </section>
+
+
+<!-- Sección: TREN SOLAR -->
+
+<section id="tren-solar" class="destino">
+
+<div class="intro">
+
+  <h2 data-lang="tren-solar.title">🚆🚂 Tren Solar de la Quebrada 🌞</h2>
+<p data-lang="tren-solar.subtitle">Vive esta experiencia unica</p>
+
+    <p data-lang="tren-solar-descripcion">
+      Disfruta de un día inolvidable explorando la <strong>Quebrada de Humahuaca</strong> de una forma <strong>sostenible, divertida y diferente</strong>: con el <strong>primer tren motorizado por energía solar del país</strong>. 🌍✨
+    </p>
+  </div>
+
+  <div class="itinerario">
+    <h3 data-lang="tren-solar.itinerario.descripcion">⏰ Tu aventura comienza temprano...</h3>
+    <ul>
+      <li data-lang="tren-solar.itinerario.descripcion1">🚐 <strong>Salida desde Salta:</strong> 6:20 hs</li>
+      <li data-lang="tren-solar.itinerario.descripcion2"></li>>📍 <strong>Punto de encuentro:</strong> Calle Córdoba 2, centro de Salta</li>
+      <li data-lang="tren-solar.itinerario.descripcion3">🛣️ Recorrido por las <strong>RN 9 y RN 34</strong>, pasando por pintorescos pueblos hasta llegar al <strong>Pueblo Volcán</strong>.</li>
+    </ul>
+  </div>
+
+  <div class="experiencia">
+    <h3 data-lang="tren-solar.experiencia">🚄 La experiencia TREN SOLAR</h3>
+    <ul>
+      <li data-lang="tren-solar.experiencia2 ">🕒 <strong>Ascenso al tren:</strong> 9:35 hs</li>
+      <li data-lang="tren-solar.experiencia3">🛤️ <strong>Recorrido:</strong> Volcán – Purmamarca – Tumbaya – Maimará – Tilcara</li>
+      <li data-lang="tren-solar.experiencia" >☀️ <strong>Energía 100% sostenible:</strong> Tren motorizado por energía solar</li>
+      <li data-lang="tren-solar.experiencia">📸 Disfruta de paisajes multicolores, formaciones rocosas únicas y una conexión directa con la historia y cultura de la región.</li>
+    </ul>
+  </div>
+
+  <div class="paradas">
+    <h3 data-lang="tren-solar.paradas">🚶‍♂️ Explorá libremente las estaciones</h3>
+    <p data-lang="tren-solar.paradas.descripcion">
+      Una vez en la Quebrada, podrás <strong>bajar y subir al tren las veces que quieras durante todo el día</strong>, para explorar a tu ritmo:
+    </p>
+    <ul>
+      <li data-lang="tren-solar.paradas.item1">🏞️ <strong>Purmamarca:</strong> Con su famoso <strong>Cerro de los 7 Colores</strong></li>
+      <li data-lang="tren-solar.paradas.item2">🏯 <strong>Tilcara:</strong> Con su rica historia y el <strong>Pucará</strong></li>
+      <li data-lang="tren-solar.paradas.item3">🌄 <strong>Tumbaya y Maimará:</strong> Pueblos llenos de color, cultura y tradición</li>
+    </ul>
+    <p data-lang="tren-solar.recomendacion1"><strong>💡 Recomendación:</strong> ¡No te pierdas <strong>Purmamarca</strong> y <strong>Tilcara</strong>, dos de los destinos más fotografiados del norte argentino!</p>
+  </div>
+
+  <div class="regreso">
+    <h3 data-lang="tren-solar.regreso" >⏰ Regreso a Salta</h3>
+    <ul>
+      <li data-lang="tren-solar.regreso.descripcion.item1">🚌 <strong>Salida desde la estación Volcán:</strong> 19:45 hs</li>
+      <li data-lang="tren-solar.regreso.descripcion.item2">🏁 <strong>Llegada estimada a Salta:</strong> Aproximadamente 21:30 hs</li>
+      <li data-lang="solar.incluye">🚐 <strong>Servicio incluido:</strong> Traslado de regreso en bus/minibus</li>
+    </ul>
+  </div>
+
+  <div class="llamado-accion">
+    <h3  data-lang="llamado-accion1">📅 ¡Reservá tu lugar en esta experiencia única!</h3>
+    <p data-lang="llamado-accion2">
+      El cupo es <strong>limitado</strong> y la demanda, ¡muy alta! Asegurá tu lugar en el primer tren solar de Argentina y viví una aventura sostenible en uno de los paisajes más increíbles del país.
+    </p>
+     <a href="https://wa.me/message/P4U2VW3SBHMTD1 " target="_blank" class="btn-reservar">Reservar ahora</a>
+  </div>
+
+  </div>
+</div>
+</section>
+  <!-- Destino: humahuaca  -->
+
+  <section id="Humahuaca" class="destino">
+  <div class="intro">
+
+  <h2 data-lang="Humahuaca.title"=""> 🌄 EXCURSIÓN A HUMAHUACA:
+</h2>
+<h3 data-lang="Humahuaca.subtitle">DESCUBRE LA QUEBRADA DE LOS COLORES</h3>
+<p data-lang="Humahuaca.unesco">
+  🌍Patrimonio Cultural de la Humanidad por la UNESCO
+</p>
+
+  <div>
+    <p data-lang="Humahuaca.intro">
+      Sumérgete en uno de los paisajes más icónicos del norte argentino. Viajá desde Salta hacia la mágica Quebrada de Humahuaca , un valle milenario declarado Patrimonio Cultural de la Humanidad por la UNESCO , donde historia, cultura y naturaleza se fundan en un solo latido.
+    </p>
+    <p data-lang="Humahuaca.intro1">Atravesaremos pueblos pintorescos, cerros de siete colores, templos coloniales y fortalezas preincaicas. ¡Un viaje en el tiempo sobre ruedas!</p>
+    <p>
+     🚌 Itinerario del Día: Un Recorrido por la Historia y los Colores
+    </p>
+  </div>
+
+  <div >
+    <h3 data-lang="Humahuaca.info">📍 Salidas</h3>
+    <ul>
+      <li data-lang="Humahuaca.info1">📍 <strong> Salida desde Salta: 6:30 hs (diaria)</strong> desde hoteles en Salta Capital</li>
+      <li data-lang="Humahuaca.info2">⏱️ <strong> Duración: Aprox. 13 horas</strong>desde hoteles en Salta Capital </li>
+      <li>🌅 Regreso estimado: 19:00 - 20:00 hs  </li>
+      
+    </ul>
+  </div>
+
+
+  <div>
+    <h3 data-lang="Humahuaca.sugerencias">🌅 Nuestro recorrido incluye paradas imperdibles:</h3>
+   
+    <ul>
+      <li data-lang="Humahuaca.sugerencias.item1">🔹 Volcán (2.070 msnm) Primer contacto con el altiplano. Un pueblito tranquilo a orillas del Río Grande, ideal para tomar las primeras fotos del amanecer en la quebrada. </li>
+         <li data-lang="Humahuaca.sugerencias.item2"> 🔹 Purmamarca (2.320 msnm) Aquí te esperamos para que maravilles tus ojos con el Cerro de los Siete Colores , una formación natural única en el mundo. Pasea por su plaza artesanal, llena de colores, tejidos y aromas andinos. </li>
+            <li data-lang="Humahuaca.sugerencias.item3">🔹 Tilcara (2.461 msnm) Uno de los pueblos más antiguos del país. Visitaremos:</li>
+            <li>
+              <p data-lang="Humahuaca.sugerencias.item1.subitem1">El Museo Arqueológico Municipal
+El Pucará de Tilcara , una fortificación preincaica construida hace más de mil años, con vistas panorámicas del valle.</p>
+       <li data-lang="Humahuaca.sugerencias.item1.subitem2">🔹 Humahuaca (2.939 msnm) La joya de la quebrada. Aquí tendrás 2 horas de tiempo libre para:</li>
+       <p data-lang="Humahuaca.sugerencias.item3">Visitar la Iglesia Catedral de la Candelaria (1873)
+Recorrer el Monumento a la Independencia , símbolo de la gesta libertadora
+Probar un almuerzo típico (no incluido) en alguno de sus restaurantes con vista al cerro</p>
+            </li>
+  
+    </ul>
+  </div>
+
+  <div >
+    <h3 data-lang="Humahuaca.incluye">🎨 Paradas extra con encanto único</h3>
+  <ul>
+   <li data-lang="Humahuaca.incluye.item1">🔸 Uquía Descubriremos el Templo de la Santa Cruz y San Francisco de Paula , de estilo colonial andino, con muros de adobe y techos de totora. En su interior, las famosas “Ángeles Arcabuceros” , pinturas del estilo cuzqueño que mezclan fe y tradición indígena.
+</li>
+  <li data-lang="Humahuaca.incluye.item2">
+🔸 Huacalera Parada en el monolito del Trópico de Capricornio , donde podrás cruzar simbólicamente entre hemisferios. ¡Perfecta para una foto inolvidable!
+  </li>
+  <li data-lang="Humahuaca.incluye.item3">🔸 Maimará Contemplaremos la “Paleta del Pintor” , una formación montañosa donde la naturaleza parece haber mezclado todos los tonos del rojo, ocre, verde y violeta en un lienzo gigante.</li>
+  </div>
+
+  <div>
+    <h3 data-lang="Humahuaca.sugerencias.item4">📌 Detalles prácticos</h3>
+    <li>🎒 Recomendamos llevar: ropa abrigada, protector solar, cámara y agua
+    </li>
+    <li data-lang="Humahuaca.incluye.item4"> 🍽️ Almuerzo no incluido – ¡podrás elegir entre opciones típicas como locro, empanadas salteñas o tamales!</li>
+  </div>
+
+  <div>
+    <h3 class="Humahuaca.servicio"> ✅ Servicios incluidos</h3>
+    <ul>
+      <li data-lang="Humahuaca.servicio.item1">🚌 Traslado ida y vuelta desde tu hotel en Salta</li>
+      <li data-lang="Humahuaca.servicio.item2">🧑‍✈️ Guía profesional especializada en historia, cultura y geografía</li>
+      <li data-lang="Humahuaca.servicio.item3">🛡️ Seguro de viaje incluido</li>
+      <li data-lang="Humahuaca.servicio.item4">📸 Tiempo libre en cada destino para fotos, artesanías y recuerdos</li>
+      <li data-lang="Humahuaca.servicio.item5">📣 Coordinación permanente durante todo el recorrido</li>
+      <li data-lang="Humahuaca.servicio.item6">📸 Tiempo libre en cada destino para fotos, artesanías y experiencias auténticas
+</li>
+    </ul>
+  </div>
+
+  <div class="llamado-accion">
+    <h3 data-lang="Humahuaca.reserva">📞 ¡Reserva tu lugar hoy!</h3>
+    <p data-lang="Humahuaca.resrve.texto">
+    🌟 Humahuaca no es solo un destino… es una experiencia que transforma.
+    </p>
+    <p data-lang="Humahuaca.reserva.texto1">
+      👉 <strong>¡¿Te lo vas a perder?!</strong>
+    </p>
+     <a href="https://wa.me/message/P4U2VW3SBHMTD1 " target="_blank" class="btn-reservar">Reservar ahora</a>
+  </div>
+
+  <div class="galeria">
+    <img src="images/humahuaca.cartel.jpg" alt="Termas del Río Jordán 1">
+    <img src="images/Humahuaca Argentina.jpg" alt="Termas del Río Jordán 2">
+    <img src="images/humahuaca2.jpg" alt="Termas del Río Jordán 3">
+  </div>
+</div>
+</section>
+  
+<!---->
+ <!-- Destino: Parapente -->
+
+  <section id="parapente" class="destino">
+    <div>
+    <h2 data-lang="parapente.title">🪂 Vuela sobre Salta: Parapente en Cerro Delta</h2>
+    <div>
+      <p data-lang="parapente.intro">¿Listo para cumplir tu sueño de volar? Vive una experiencia única sobrevolando los paisajes salteños con vistas panorámicas desde más de 2.000 metros.</p>
+    </div>
+    <div>
+      <h3 data-lang="parapente.experiencia">🔥 ¿Qué incluye?</h3>
+      <ul>
+        <li data-lang="parapente.experiencia.item1">🪂 Vuelo tandem de 15 a 20 minutos</li>
+        <li data-lang="parapente.experiencia.item2">📸 Fotos y videos HD del vuelo (¡gratis!)</li>
+        <li data-lang="parapente.experiencia.item3">🛡️ Equipo profesional y seguro certificado</li>
+        <li data-lang="parapente.experiencia.item4">🚗 Traslado incluido desde Salta Capital</li>
+      </ul>
+    </div>
+    <div>
+      <h3  class data-lang="parapente.info">🎯 ¿Por qué elegirnos?</h3>
+      <ul>
+ <li data-lang="parapente.info.item1">✅ Únicos en Salta con fotos y videos GRATIS</li>
+        <li data-lang="parapente.info.item2">✅ Grupos reducidos y atención personalizada</li>
+        <li data-lang="parapente.info.item3">✅ Vuelos diarios todo el año</li>
+      </ul>
+    
+    <div>
+      <h3  data-lang=""="parapente.info-practica">📌 Detalles</h3>
+      <p  data-lang="parapente.info-necesaria">Edad mínima: 14 años. Peso máximo: 150 kg. No se requiere experiencia.</p>
+    </div>
+    <a href="https://wa.me/message/P4U2VW3SBHMTD1" target="_blank" class="btn-reservar">Reservar ahora</a>
+    </div>
+  </section>
+
+<!-- Sección: Cabalgata -->
+<section id="cabalgata" class="experiencia">
+<div>
+  <h2 data-lang="titulo-experiencia">🌄 Cabalgata entre Paisajes Increíbles 🐎</h2>
+  <p data-lang="descripcion-experiencia">
+    ¿Te imaginás recorrer senderos escondidos entre montañas y valles mientras cabalgas tranquilamente por caminos exclusivos solo para vos? 🌿✨
+  </p>
+
+  <div>
+    <p  data-lang="detalles-experiencia">En nuestra finca te esperan <strong>recorridos personalizados de aproximadamente 2 horas y media</strong>, diseñados para que disfrutes al máximo de la naturaleza sin aglomeraciones ni prisas.</p></div>
+
+    <h3 data-lang="subtitle">🌟 ¿Qué te ofrecemos?</h3>
+    <ul data-lang="cabalgata.beneficios">
+      <li data-lang="cabalgata.beneficios.item1">🐴 <strong>Recorridos privados:</strong> No mezclamos grupos, ¡es tu experiencia, tu ritmo!</li>
+      <li data-lang="cabalgata.beneficios.item2">🛢️ <strong>Senderos exclusivos:</strong> Adéntrate en los rincones más lindos de la finca, rodeado de paisajes naturales y tranquilidad.</li>
+      <li data-lang="cabalgata.beneficios.item3">⏱️ <strong>Duración:</strong> Aproximadamente 2 horas y media de pura conexión con la naturaleza.</li>
+      <l data-lang="cabalgata.beneficios.item4">💰 <strong>Precio:</strong> $45.000 por persona + $10.000 por traslado (ida y vuelta).</li>
+    </ul>
+
+    <h3 data-lang="llamado-accion">📅 ¡Reservá ahora y asegurá tu lugar!</h3>
+    <p data-lang="mensaje-final">
+      Las plazas son <strong>limitadas</strong> para garantizar la calidad y exclusividad de la experiencia.  
+      No dejes pasar la oportunidad de vivir una aventura diferente y desconectar del bullicio.
+    </p>
+
+    <a href="https://wa.me/message/P4U2VW3SBHMTD1 " target="_blank" class="btn-reservar">Reservar ahora</a>
+  </div>
+</div>
+</section>
+</section>
+
+      <!-- Footer -->
+      <footer>
+        <p>&copy; 2025 Uriel Travel | Diseñado por Nali</p>
+      </footer>
+
+    </main>
+ 
+  </body>
+</html>

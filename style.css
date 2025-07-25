@@ -1,0 +1,1044 @@
+/* ==================== RESET GENERAL ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  color: var(--text-color);
+  background: #111;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+/* ==================== VARIABLES DE COLOR ==================== */
+:root {
+  --primary-color: #FFA500;           /* Naranja vibrante */
+  --text-color: white;
+  --bg-overlay: rgba(0, 0, 0, 0.6);
+  --menu-bg: rgba(0, 0, 0, 0.95);
+    --submenu-border: #fff;
+  --lang-bg: white;
+  --lang-hover-bg: #f0f0f0;
+  --lang-border: #ccc;
+  --btn-bg: #bf4301;
+  --btn-hover-bg: #b37a00d1;
+  --destino-bg: rgba(0, 0, 0, 0.8);
+    --border-radius: 12px;
+  --transition: all 0.3s ease;
+}
+
+/* ==================== BANNER PRINCIPAL ==================== */
+.banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: #111;
+  padding: 2rem;
+  max-width: 100%;
+  border-radius: 10px;
+  margin: 1px auto;
+  gap: 2rem;
+  border-bottom: 1px solid #333;
+  z-index: 1000;
+}
+
+.llama-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 6px;
+}
+
+.puntos-menu {
+  font-size: 35px;
+  color: white;
+  user-select: none;
+}
+
+
+
+/* ==================== MENÚ HAMBURGUESA HORIZONTAL CON ANIMACIÓN ==================== */
+
+
+/* --- CORRECCIONES EN EL MENÚ HAMBURGUESA --- */
+
+/* Contenedor principal - solo muestra las 3 líneas y la llama */
+.menu-hamburguesa-container {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Botón hamburguesa */
+.menu-toggle-btn {
+  background: rgba(255, 107, 53, 0.9);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 1001;
+  backdrop-filter: blur(10px);
+}
+
+.menu-toggle-btn:hover {
+  background: rgba(229, 90, 43, 0.9);
+  transform: scale(1.1);
+}
+
+/* SVG de la llama - siempre visible DEBAJO de las 3 líneas */
+.llama-icon {
+  position: fixed;
+  top: 65px; /* Ajustado para estar debajo */
+  left: 15px;
+  z-index: 1002;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  width: 30px;
+  height: 30px;
+}
+
+.llama-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Menú de navegación - oculto por defecto */
+.menu-hamburguesa {
+  position: fixed;
+  top: 15px;
+  left: 70px; /* A la derecha del botón */
+  background: rgba(30, 30, 30, 0.95);
+  backdrop-filter: blur(16px);
+  border-radius: 16px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transform: translateX(-20px); /* Oculto inicialmente */
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 999;
+  min-width: 280px;
+  max-width: 90vw; /* Ancho máximo responsivo */
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 10px 0; /* Corregido: padding interno razonable */
+}
+
+.menu-hamburguesa.active {
+  transform: translateX(0); /* Visible */
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Estilos de la lista */
+.menu-hamburguesa ul {
+  list-style: none;
+  padding: 0; /* Resetear padding */
+  margin: 0;
+}
+
+/* Items principales del menú */
+.menu-hamburguesa > ul > li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu-hamburguesa > ul > li:last-child {
+  border-bottom: none;
+}
+
+/* Enlaces principales */
+.menu-hamburguesa > ul > li > a {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  text-decoration: none;
+  color: #f0f0f0;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.menu-hamburguesa > ul > li > a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ff6b35;
+}
+
+/* Imágenes de los enlaces principales */
+.menu-hamburguesa > ul > li > a img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Submenús - inicialmente ocultos */
+.submenu {
+  background: rgba(50, 50, 50, 0.8);
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+/* Mostrar submenú cuando el dropdown está activo */
+.dropdown.active .submenu {
+  max-height: 1000px; /* Altura suficiente para mostrar todo */
+  padding: 10px 0; /* Añadir padding cuando se muestra */
+}
+
+.submenu li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.submenu li:last-child {
+  border-bottom: none;
+}
+
+/* Enlaces de submenú */
+.submenu a {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px 12px 40px;
+  text-decoration: none;
+  color: #cccccc;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.submenu a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ff6b35;
+  padding-left: 45px;
+}
+
+/* Imágenes de los enlaces de submenú */
+.submenu img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Flechas indicadoras */
+.menu-hamburguesa > ul > li > a::after {
+  content: ' ▾';
+  margin-left: auto;
+  transition: transform 0.3s ease;
+}
+
+.dropdown.active > a::after {
+  transform: rotate(180deg);
+}
+
+/* --- FIN CORRECCIONES MENÚ --- */
+/* ==================== INFORMACIÓN DE LA VENDEDORA ==================== */
+.vendedora-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  order: 1;
+  flex: 1 1 200px;
+  margin-left:auto ;
+}
+
+.foto-vendedora {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid white;
+  margin-left: auto;
+}
+
+.info-vendedora h1 {
+  font-size: 1rem;
+  margin: 0;
+  color: white;
+}
+
+.info-vendedora span {
+  font-size: 0.8rem;
+  color: #ded70b;
+  display: block;
+}
+
+/* ==================== LOGO DE LA AGENCIA ==================== */
+.logo-agencia-container {
+  display: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  order: 3;
+  flex: 1 1 300px;
+}
+
+.logo-agencia {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-img {
+  width: 60px;
+  height: auto;
+   border-radius: 50%;
+}
+
+.logo-agencia h2 {
+  font-size: 1.2rem;
+  margin: 0;
+  color: white;
+}
+
+.logo-agencia p {
+  font-size: 0.7rem;
+  color: var(--primary-color);
+}
+
+/* ==================== MENSAJE LATERAL (solo escritorio) ==================== */
+.mensaje-lado {
+  display: none;
+  order: 4;
+  flex: 1 1 200px;
+  font-size: 0.9rem;
+  color: rgb(208, 185, 171);
+  line-height: 1.5;
+  max-width: 300px;
+  padding: 0.1rem;
+  background: rgba(89, 18, 4, 0.889);
+  border-radius: 8px;
+  text-align: center;
+margin-left: auto;
+margin:20px;
+
+}
+
+/* ==================== BOTÓN DE IDIOMAS ==================== */
+.language-container {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+
+ 
+}
+
+.btn-idiomas {
+  background-color: #ac6002;
+  color: rgb(23, 1, 1);
+  border: none;
+  padding: 10px 16px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-idiomas:hover {
+  background-color: #cab78f;
+}
+
+.language-menu {
+  position: absolute;
+  right: 0;
+  background: var(--lang-bg);
+  border: 1px solid var(--lang-border);
+  border-radius: 6px;
+  padding: 8px 0;
+  min-width: 140px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: none;
+}
+
+.language-menu.active {
+  display: block;
+}
+
+.language-menu button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+}
+
+.language-menu button:hover {
+  background-color: var(--lang-hover-bg);
+}
+
+/* ==================== CARRUSEL DE FONDO ==================== */
+/* Carrusel de fondo */
+.slider {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+ 
+  background: url('images/fondo1.jpg') no-repeat center center / cover;
+  animation: slide 20s infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  
+}
+
+@keyframes slide {
+  0% { background-image: url('images/fondo1.jpg'); }
+  33% { background-image: url('images/fondo2.jpg'); }
+  66% { background-image: url('images/fondo3.jpg'); }
+  100% { background-image: url('images/fondo1.jpg'); }
+}
+
+.overlay {
+  background: var(--bg-overlay);
+padding: 1rem;
+  max-width: 800px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  margin: 0 auto;
+  border-radius: var(--border-radius);
+}
+
+
+.hero h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: rgb(240, 203, 168);
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: rgb(241, 213, 186);
+}
+
+.btn-reserva {
+  background: var(--primary-color);
+  color: black;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s;
+  display: inline-block;
+}
+
+.btn-reserva:hover {
+  background: #e08e00;
+}
+.slider2 {
+  position: relative;
+
+  height: 100vh;
+  background:rgba(85, 21, 4, 0.359);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* ==================== PREVIEW MODAL (opcional) ==================== */
+.preview-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.preview-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  background: white;
+ 
+}
+.preview-content img {
+  max-width: 90vw;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+.preview-close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: white;
+  color: #333;
+  border: none;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 3000;
+}
+/* ==================== ESTILOS GENERALES PARA SECCIONES ==================== */
+/* Aplicar estilos a las clases principales y a selectores de ID */
+.destino,
+.parapente,
+.experiencia {
+  padding: 4rem 2rem;
+  margin: 4rem auto;
+  max-width: 1200px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  border: 1px solid rgba(255, 165, 0, 0.3);
+  backdrop-filter: blur(10px);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.destino:hover,
+.parapente:hover,
+.experiencia:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Overlay para mejorar la legibilidad del texto */
+.destino::before,
+.parapente::before,
+.experiencia::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  border-radius: var(--border-radius);
+}
+
+/* Contenido interno */
+.destino > *,
+.parapente > *,
+.experiencia > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Títulos principales de sección */
+.destino h2,
+.parapente h2,
+.experiencia h2 {
+  font-size: 2.8rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  border-bottom: 3px solid var(--primary-color);
+  padding-bottom: 15px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  animation: fadeInDown 0.8s ease;
+}
+
+/* Subtítulos de sección */
+.destino h3,
+.parapente h3,
+.experiencia h3 {
+  font-size: 1.8rem;
+  color: #FFD700;
+  margin: 2rem 0 1rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  animation: fadeInLeft 0.6s ease;
+}
+
+/* Párrafos */
+.destino p,
+.parapente p,
+.experiencia p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  color: #f0f0f0;
+  animation: fadeIn 0.8s ease;
+}
+
+/* Listas */
+.destino ul,
+.parapente ul,
+.experiencia ul {
+  text-align: left;
+  max-width: 800px;
+  margin: 1.5rem auto;
+  padding-left: 1.5rem;
+}
+
+.destino li,
+.parapente li,
+.experiencia li {
+  margin-bottom: 0.8rem;
+  color: #e0e0e0;
+  font-size: 1.05rem;
+  position: relative;
+  padding-left: 1.5rem;
+  animation: fadeInRight 0.5s ease;
+}
+
+.destino li::before,
+.parapente li::before,
+.experiencia li::before {
+  content: "▹";
+  color: var(--primary-color);
+  position: absolute;
+  left: 0;
+  font-size: 1.2rem;
+}
+
+/* Galería de imágenes */
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+
+.galeria img {
+  flex: 1 1 300px;
+  max-width: 350px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 3px solid rgba(255, 165, 0, 0.2);
+  animation: zoomIn 0.6s ease;
+}
+
+.galeria img:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(255, 165, 0, 0.4);
+  border-color: var(--primary-color);
+}
+
+/* Botones de acción */
+.btn-reservar,
+.boton-reservar {
+  display: inline-block;
+  margin: 2rem auto;
+  background: linear-gradient(45deg, var(--primary-color), #ff8c00);
+  color: #1a1a1a;
+  padding: 1.2rem 2.5rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  box-shadow: 0 5px 20px rgba(255, 165, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+  animation: pulse 2s infinite;
+}
+
+.btn-reservar:hover,
+.boton-reservar:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(255, 165, 0, 0.6);
+  background: linear-gradient(45deg, #ff8c00, var(--primary-color));
+}
+
+.btn-reservar:active,
+.boton-reservar:active {
+  transform: translateY(1px);
+}
+
+/* Efecto de brillo en botones */
+.btn-reservar::after,
+.boton-reservar::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 20px;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(30deg);
+  transition: all 0.8s;
+}
+
+.btn-reservar:hover::after,
+.boton-reservar:hover::after {
+  left: 120%;
+}
+
+/* ==================== FONDOS DISTINTIVOS PARA CADA DESTINO ==================== */
+/* Asegúrate de tener estas imágenes en tu carpeta 'images/' */
+
+/* Salinas Grandes */
+#Salinas.destino {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.151), rgba(0, 0, 0, 0.162)), url('images/salinas\ grandes.jpg'); /* Corregido el nombre */
+}
+
+/* Cachi */
+#cachi.destino {
+
+  background-image: linear-gradient(rgba(0, 0, 0, 0.151), rgba(0, 0, 0, 0.162)) , url('images/cachi-fondo.jpg');
+}
+
+/* Cafayate */
+#Cafayate.destino {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.151), rgba(0, 0, 0, 0.162)), url('images/CAFAYATE\,\ SALTA\,\ ARGENTINA.jpg');
+}
+
+/* humahuaca */
+#Humahuaca.destino {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.151), rgba(0, 0, 0, 0.162)), url('images/humahuaca2.jpg');
+}
+/* Iruya */
+#Iruya.destino {
+  background-image: linear-gradient linear-gradient(rgba(0, 0, 0, 0.151), rgba(0, 0, 0, 0.162)), url('images/iruya.paisaje.jpg');
+}
+
+/* Tren Solar */
+#tren-solar.destino {
+  background-image:linear-gradient(rgba(0, 0, 0, 0.151), rgba(0, 0, 0, 0.162)), url('images/tren-sol.jpg');
+}
+
+/* City Tour Salta */
+#city-tour-salta.destino {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.151), rgba(0, 0, 0, 0.162)), url('images/Plaza\ 9\ de\ Julio.jpg');
+}
+
+/* Termas del Río Jordán */
+#termas-rio-jordan.destino {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('images/termas-jordan1.jpg');
+}
+
+/* Parapente */
+#parapente.parapente {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('images/parapentes\ menu.jpg');
+}
+
+/* Cabalgata */
+#cabalgata.experiencia {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('images/Cabalgata\ en\ el\ Valle\ 🌄.jpg');
+}
+
+
+#Termas-rio-Hondo.destino {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('images/rio\ Hondo.vista.jpg');
+}
+
+*/
+
+/* ==================== ANIMACIONES ==================== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 165, 0, 0.6); }
+  70% { box-shadow: 0 0 0 15px rgba(255, 165, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 165, 0, 0); }
+}
+
+/* ==================== EFECTOS ADICIONALES ==================== */
+/* Efecto de partículas flotantes */
+.destino::after,
+.parapente::after,
+.experiencia::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255, 165, 0, 0.1) 0.5px, transparent 1px),
+    radial-gradient(circle at 90% 80%, rgba(255, 215, 0, 0.1) 0.5px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.3;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ==================== EFECTOS DE SCROLL ==================== */
+.destino,
+.parapente,
+.experiencia {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.destino.appear,
+.parapente.appear,
+.experiencia.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==================== MEDIA QUERIES RESPONSIVOS ==================== */
+@media (max-width: 768px) {
+  .destino,
+  .parapente,
+  .experiencia {
+    padding: 2rem 1rem;
+    margin: 2rem 1rem;
+    border-radius: 10px;
+  }
+
+  .destino h2,
+  .parapente h2,
+  .experiencia h2 {
+    font-size: 2.2rem;
+  }
+
+  .destino h3,
+  .parapente h3,
+  .experiencia h3 {
+    font-size: 1.5rem;
+  }
+
+  .destino p,
+  .parapente p,
+  .experiencia p {
+    font-size: 1rem;
+  }
+
+  .galeria {
+    gap: 1rem;
+  }
+
+  .galeria img {
+    flex: 1 1 100%;
+    max-width: 100%;
+    height: 200px;
+  }
+
+  .btn-reservar,
+  .boton-reservar {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .destino ul,
+  .parapente ul,
+  .experiencia ul {
+    padding-left: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .destino h2,
+  .parapente h2,
+  .experiencia h2 {
+    font-size: 1.8rem;
+  }
+
+  .destino h3,
+  .parapente h3,
+  .experiencia h3 {
+    font-size: 1.3rem;
+  }
+
+  .galeria img {
+    height: 180px;
+  }
+}
+
+/* ==================== MEDIA QUERIES RESPONSIVOS ==================== */
+
+@media (max-width: 768px) {
+  .banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .vendedora-info {
+    order: 1;
+    margin-top: 1rem;
+  }
+
+  .logo-agencia-container {
+    order: 1;
+    margin-top: 1rem;
+  }
+
+  .mensaje-lado {
+    display: none; /* Oculto en móvil */
+  }
+
+  .menu-hamburguesa {
+   flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  .galeria img {
+    max-width: 100%;
+  }
+
+  .destino {
+    padding: 2rem 1rem;
+  }
+
+  .direccion-mapa {
+    padding: 1.5rem;
+    height: auto;
+  }
+
+  .mapa {
+    width: 90%;
+    max-width: 600px;
+    height: 300px;
+  }
+
+  .hero h2 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .mensaje-lado {
+    display: block;
+  }
+}
+
+/* --- Estilos para la Sección Home Unificada --- */
+
+.home-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh; /* Ocupa al menos el alto de la ventana */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+
+  /* --- Fondo de imagen --- */
+  background-image: url('images/Salta;\ Argentina.jpg'); /* <--- Cambia esta ruta por la de tu imagen */
+  background-size: cover; /* La imagen cubre toda el área */
+  background-position: center center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que se repita */
+  background-attachment: fixed; /* (Opcional) Hace que el fondo se quede fijo al hacer scroll */
+}
+
+/* Capa de superposición naranja */
+.home-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: orange; /* Color naranja base */
+  opacity: 0.5; /* Transparencia (0 = transparente, 1 = opaco) */
+  z-index: 1; /* Se coloca detrás del contenido */
+}
+
+/* Contenido principal de la sección home */
+.home-content {
+  position: relative;
+  z-index: 2; /* Se coloca encima de la superposición */
+  max-width: 1200px; /* Limita el ancho del contenido */
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  color: white; /* Color del texto para contrastar con el fondo */
+}
+
+/* Ajustes para elementos dentro de .home-content si es necesario */
+/* Por ejemplo, puedes querer ajustar márgenes o centrar elementos específicos */
+.hero {
+  margin-top: 20px; /* Ejemplo de margen */
+}
+
+/* Asegura que el botón de reserva sea visible */
+.btn-reserva {
+  /* Tus estilos actuales para .btn-reserva */
+  /* Asegúrate de que el color contraste bien con el fondo naranja */
+  background-color: #333; /* Ejemplo */
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 20px;
+  /* ...otros estilos... */
+}
+
+/* Ajusta otros estilos según sea necesario para que se vean bien sobre el nuevo fondo */
+.vendedora-info, .logo-agencia-container {
+  /* Asegúrate de que estos elementos también sean visibles */
+  /* Puedes agregar sombras o bordes si es necesario */
+  background-color: rgba(0, 0, 0, 0.3); /* Fondo semitransparente opcional */
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
